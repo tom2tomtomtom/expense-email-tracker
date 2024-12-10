@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  expense-tracker:
+    build: .
+    volumes:
+      - ./credentials:/app/credentials
+      - ./config.yaml:/app/config.yaml
+    environment:
+      - EMAIL_USER=${EMAIL_USER}
+      - EMAIL_PASSWORD=${EMAIL_PASSWORD}
+    restart: unless-stopped
